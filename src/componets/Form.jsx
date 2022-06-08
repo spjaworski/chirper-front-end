@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import ChirpList from './List';
+
+
+let chirpCount = 3;
 
 const Form = props => {
     const [ username, setUsername ] = useState('');
@@ -11,14 +13,16 @@ const Form = props => {
         setChirp(e.target.value);
     }
 
+    
+
     const handleSubmit = () => {
         
         if (username == '' || chirp == '') {
             alert("Please enter both a username and a message")
         } else {
-            
+            chirpCount += 1;
            const newChirp = {
-                    id: 'chirp4',
+                    id: `chirp${chirpCount}`,
                     username: username,
                     chirp: chirp
             }
